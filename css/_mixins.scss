@@ -1,0 +1,60 @@
+// mixins
+// 1. mixin
+@mixin krug {
+    border-radius: 50%;
+}
+// @include kurg
+
+// 2. mixin sa argumentima
+@mixin zaobli-ivice($vrednost) {
+    border-radius: $vrednost;
+}
+// @include zaobli-ivice(20px);
+
+// 3. mixin sa argumentima ili bez, ali sa dodavanjem sadrzaja
+@mixin zaobli($vrednost) {
+    border-radius: $vrednost;
+    @content;
+}
+// @include zaobli(20px) {
+//     border: 1px solid #f54;
+// }
+
+//loops
+$colors: grey orange lightgreen blue;
+@each $color in $colors {
+    .header-#{$color} {
+        background-color: rgba($color, 0.5);
+        .btn {
+            background-color: $color;
+        }
+    }
+}
+
+$base-color: #000;
+@for $i from 1 through 15 {
+    .test-#{$i} {
+        background-color: lighten($base-color, $i * 5%);
+    }
+}
+
+@mixin breakpoint($value) {
+	@if $value == 'phone' {
+		@media only screen and (max-width: 767px) { @content; }
+	} @else if $value == 'tablet' {
+		@media only screen and (max-width: 1200px) { @content; }
+	}  @else {
+		@media only screen and (max-width: $value) { @content; }
+	}
+}
+
+// @include breakpoint(tablet) {
+//     .item {
+//         background-color: #fff;
+//     }
+// }
+@mixin kruzic($precnik, $radius ){
+    width: $precnik;
+    height: $precnik;
+    border-radius: $radius;
+}

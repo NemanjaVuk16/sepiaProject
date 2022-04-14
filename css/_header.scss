@@ -1,0 +1,208 @@
+.header{
+    position: relative;
+    z-index: 10;
+    background-color:$white;
+    padding: 20px 0 5px;
+    box-shadow: 0 4px 2px -2px $superLightGrey;
+    .wrapper{
+        @extend %clearfix;
+    }
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.header-sticky{
+    position: fixed;
+}
+.btn{
+    margin-top: 10px;
+    background-color: $turquoise;
+    color: $white;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: top;
+    padding: 7px 12px;
+    &:hover{
+        opacity: 0.7;
+    }
+}
+.header-holder{
+    float: right;
+    font-size: 0;
+}
+// .header .btn{
+//     margin-top: 10px;
+// }
+.logo{
+    display: block;
+    float: left;
+    &:hover{
+        opacity: 0.7;
+    }
+}
+// .logo:hover{
+//     opacity: 0.7;
+// }
+.logo-src{
+    display: block;
+    height: 50px;
+}
+.navigation{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 120px;
+    padding: 16px 0;
+}
+.menu-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 25px;
+}
+.menu-item-arrow .menu-link{
+    position: relative;
+    padding-right: 18px;
+    &::after{
+        content: '';
+    position: absolute ;
+    top: 3px;
+    right: 3px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid $grey;
+    border-top: 2px solid $grey;
+    transform: rotate(135deg);
+    }
+}
+.menu-link{
+    display: block;
+    font-size: 16px;
+    color: $grey;
+    line-height: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    &:hover{
+        opacity: 0.7;
+    }
+}
+.drop-down{
+    position: relative;
+    .drop-down-menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        min-width: 100px;
+        background-color: $white;
+        z-index: 1;
+        .drop-down-menu-link{
+            text-decoration: none;
+            color: $turquoise; 
+        }
+    }
+    .drop-down-menu-item{
+        font-size: 16px;
+        line-height: 18px;
+        padding: 5px;
+        width: 100%;
+        font-weight: 500;
+        &:hover{
+            background-color: $grey;  
+        }
+    }  
+}
+.menu-item-arrow:hover .drop-down-menu{
+    display: block;
+}
+.toggle{
+    display: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    border: 0;
+    background-color: transparent;
+    &.open{
+        .toggle-line{
+            background-color: transparent;
+            &::before{
+                top: 0;
+                transform: rotate(45deg);
+            }
+            &::after{
+                top: 0;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+.toggle-line{
+    width: 100%;
+    height: 3px;
+    background-color: $black;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    &::before{
+        content: '';
+        width: 100%;
+        background-color:$black;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        top: 9px;  
+    }
+    &::after{
+        content: '';
+    width: 100%;
+    background-color:$black;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    top: -9px;
+    }
+}
+// tablet
+@include breakpoint(tablet) {
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .header-sticky{
+        position: fixed;
+    }
+    .header-holder {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: $white;
+        width: 100%;
+        border-top: 1px solid $lightGrey2;
+        border-bottom: 1px solid $lightGrey2;
+        padding: 30px 40px;
+        display: none;
+    }
+    .navigation {
+        display: block;
+        width: 100%;
+    }
+    .toggle {
+        display: block;
+    }
+    .menu-item {
+        display: block;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    .menu-link {
+        display: inline-block;
+    }
+}

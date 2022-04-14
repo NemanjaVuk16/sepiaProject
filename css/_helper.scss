@@ -1,0 +1,66 @@
+// clearfix, wrapper
+
+//funkcije
+@function izracunaj($broj1, $broj2, $podeli) {
+    @return ($broj1 + $broj2) / $podeli;
+}
+
+@mixin geo($size, $circle: false) {
+    width: $size;
+    height: $size;
+    background-color: #000;
+
+    @if $circle {
+        border-radius: 50%;
+    }
+    @else {
+        border-radius: 0;
+    }
+}
+
+.test {
+    @include geo(50px, true);
+}
+
+//extend
+%bg-img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+%clearfix {
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+    }
+    &::after {
+        clear: both;
+    }
+}
+
+.clearfix {
+    @extend %clearfix;
+}
+.wrapper {
+    width: 100%;
+    max-width: 1240px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+
+.active {
+    color: $green !important;
+}
+
+.tab-active {
+    background-color: $green;
+}
+.tab-content {
+    display: none;
+}
+.tab-content-active {
+    display: block;
+}

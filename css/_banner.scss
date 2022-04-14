@@ -1,0 +1,63 @@
+.banner {
+    @extend %bg-img;
+    position: relative;
+    min-width: 380px;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    text-overflow: ellipsis;
+}
+.banner-content {
+    padding-top: 150px;
+    padding-bottom: 144px;
+}
+.banner-title {
+    color: $white;
+    font-size: 60px;
+    line-height: 62px;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    display: block;
+    position: relative;
+    padding-bottom: 24px;
+    &::after {
+        content: '';
+        height: 4px;
+        width: 40px;
+        background-color: $turquoise;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+/* tablet */
+
+@include breakpoint(tablet) {
+    .banner {
+        min-height: 340px;
+        .banner-title {
+            font-size: 48px;
+            line-height: 50px;
+        }
+        .banner-content {
+            padding-top: 132px;
+            padding-bottom: 130px;
+        }
+    } 
+}   
+/* phone */
+@include breakpoint(phone) {
+    .banner {
+        min-height: 240px;
+        .banner-title {
+            font-size: 36px;
+            line-height: 38px;
+            padding: 14px;
+        }
+        .banner-content {
+            padding-top: 100px;
+            padding-bottom: 85px;
+        }
+    }
+}

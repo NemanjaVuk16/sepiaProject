@@ -1,0 +1,253 @@
+body,
+button,
+input,
+textarea {
+	font-family: $font;
+}
+body{
+    padding-top: 90px;
+}
+.section-intro {
+    padding: 80px 0;
+}
+.intro-holder{
+    @extend %clearfix;
+} 
+.section-into-reverse .intro-item {
+    float: right;
+}
+.section-into-reverse .intro-item-wide {
+    float: left;
+}
+.intro-title {
+    font-size: 36px;
+    line-height: 38px;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 20px;
+    position: relative;
+    color: $grey;
+    padding-bottom: 20px;
+    &::after {
+        content: '';
+        height: 4px;
+        width: 40px;
+        background-color:$turquoise;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+.intro-text {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $grey;
+    display: block;
+    margin-bottom: 20px;
+}
+.intro-item {
+    float: left;
+    width: 40%;
+    padding-right: 30px;
+}
+.intro-item-wide {
+    width: 60%;
+    float: right;
+}
+.card-container {
+    position: relative;
+    font-size: 0;
+}
+.card {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    margin-bottom: 30px;
+}
+.card-title {
+    font-size: 28px;
+    line-height: 30px;
+    color: $white;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 900;
+}
+.card-type {
+    font-size: 16px;
+    line-height: 18px;
+    color: $white;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 10px;
+}
+.card-link,
+.card-list-item {
+    font-size: 16px;
+    line-height: 18px;
+    color:$grey;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+.card-link {
+    position: inline-block;
+    color:$turquoise ;
+    text-decoration: none;
+    &:hover{
+        opacity: 0.7; 
+    }
+}
+.card-number {
+    font-size: 46px;
+    line-height: 48px;
+    color:$grey;
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding-left: 14px;
+}
+.card-value {
+    font-size: 16px;
+    line-height: 16px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+.card-btn {
+    padding: 14px 20px;
+    background-color: $black;
+}
+.card-description {
+    max-width: 760px;
+    width: 100%;
+    padding: 60px 80px;
+    margin: 0 auto;
+    text-align: center;
+}
+.card-intro {
+    font-size: 16px;
+    line-height: 18px;
+    color: $grey;
+    font-weight: 400;
+    display: block;
+    margin:0 auto;
+}
+.card-intro-link {
+    font-size: 16px;
+    line-height: 18px;
+    color: $turquoise;
+    font-weight: 400;
+    display: inline-block;
+    text-decoration: none;
+    &:hover{
+        opacity: 0.7;
+    }
+}
+.card-image {
+    @extend %bg-img;
+    min-height: 200px;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center center;
+    text-align: center;
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        opacity: 0.4;
+    }
+}
+.card-image-content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.card-holder {
+    text-align: center;
+    padding: 30px 20px;
+}
+.card-list {
+    margin: 10px 0 20px;
+}
+.bold{
+    font-weight: 700;
+}
+.card-links-bottom {
+    margin-top: 15px;
+}
+.card-link:hover {
+    opacity: 0.7;
+}
+.card-inner {
+    padding: 0 10px;
+}
+.card-icon svg {
+    height: 30px;
+    fill: $white;
+}
+.card-inner-holder {
+    box-shadow: 0 11px 8px -5px $lightGrey;
+    &:hover {
+        background-color:$superLightGrey;
+    .card-btn {
+        background-color:$turquoise;
+    }
+    .like-icon {
+        display: block;
+    }
+    }
+}
+.like-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: $transparentWhite;
+    display: none;
+    cursor: pointer;
+}
+.like-icon svg {
+    fill: $white;
+    height: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+/* footer */
+
+/* tablet */
+@include breakpoint(tablet) {
+    .card{
+        width: 50%;
+    }
+}
+
+/* phone */
+@include breakpoint(phone) {
+    .intro-item,
+    .intro-item-wide {
+        float: none;
+        width: 100%;
+        display: block;
+       margin-bottom: 30px;
+    }
+    .intro-title {
+        font-size: 28px;
+        font-weight: 400;
+    }
+    .card {
+        width: 100%;
+    }
+ }
